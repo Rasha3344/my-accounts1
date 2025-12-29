@@ -1,53 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Secure Accounts</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#1e3c72,#2a5298);
+  direction: rtl;
+  margin:0;
+  padding:0;
+}
+
+/* Card */
+.card{
+  background:#fff;
+  max-width:95%;
+  margin:20px auto;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  text-align:center;
+}
+
+/* Headings */
+h2{
+  margin-bottom:15px;
+  font-size:22px;
+  color:#1e3c72;
+}
+
+/* Login */
+#login input{
+  padding:14px;
+  width:90%;
+  border-radius:12px;
+  border:1px solid #ccc;
+  font-size:18px;
+  text-align:center;
+}
+
+#login button{
+  margin-top:15px;
+  width:90%;
+  padding:14px;
+  font-size:18px;
+  font-weight:bold;
+  background:#2a5298;
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+/* Account item */
+.item{
+  background:#f5f6fa;
+  padding:18px;
+  margin:15px 0;
+  border-radius:16px;
+  text-align:right;
+  font-size:16px;
+}
+
+.label{
+  font-weight:bold;
+  font-size:18px;
+  margin-bottom:8px;
+  color:#2a5298;
+}
+
+/* Password */
+.pass{
+  display:block;
+  font-weight:bold;
+  font-size:17px;
+  color:#333;
+  margin-top:6px;
+}
+
+/* Copy button */
+.copy{
+  margin-top:12px;
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  font-weight:bold;
+  background:#27ae60;
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+}
+</style>
+</head>
+
 <body>
 
 <!-- LOGIN -->
 <div class="card" id="login">
   <h2>🔐 دخول</h2>
-  <p>أدخل الرمز</p>
+  <p>أدخل رمز الدخول</p>
   <input type="password" id="pin" placeholder="••••">
-  <br><br>
   <button onclick="checkPin()">دخول</button>
 </div>
 
 <!-- CONTENT -->
 <div class="card" id="content" style="display:none;">
-  <h2>📂 My Accounts</h2>
+  <h2>📂 حساباتي</h2>
 
   <div class="item">
     <div class="label">📘 Facebook</div>
-    Username: salahalbydy22&#64;gmail.com<br><br>
-    Password: <b>Aram1992@;</b>
+    Username: salahalbydy22&#64;gmail.com
+    <span class="pass">Password: Aram1992&#64;</span>
+    <button class="copy" onclick="copyText('Aram1992@')">📋 نسخ الرمز</button>
   </div>
 
   <div class="item">
     <div class="label">👻 Snapchat</div>
-    Username: salahalbydy22&#64;gmail.com<br><br>
-    Password: <b>Aram1992@;</b>
+    Username: salahalbydy22&#64;gmail.com
+    <span class="pass">Password: Aram1992&#64;</span>
+    <button class="copy" onclick="copyText('Aram1992@')">📋 نسخ الرمز</button>
   </div>
 
   <div class="item">
     <div class="label">📸 TikTok</div>
-    Username: salahalbydy22&#64;gmail.com<br><br>
-    Password: <b>Aram1992@;</b>
+    Username: salahalbydy22&#64;gmail.com
+    <span class="pass">Password: Aram1992&#64;</span>
+    <button class="copy" onclick="copyText('Aram1992@')">📋 نسخ الرمز</button>
   </div>
 
   <div class="item">
     <div class="label">📧 Email</div>
-    Username: salahalbydy22&#64;gmail.com<br><br>
-    Password: <b>Aram1992@;</b>
+    Username: salahalbydy22&#64;gmail.com
+    <span class="pass">Password: Aram1992&#64;</span>
+    <button class="copy" onclick="copyText('Aram1992@')">📋 نسخ الرمز</button>
   </div>
+
 </div>
 
 <script>
 function checkPin(){
   const pin = document.getElementById("pin").value;
-  if(pin === "1992"){   // 🔴 غيري الرمز هنا
+  if(pin === "1992"){ // 🔴 غيري الرمز هنا
     document.getElementById("login").style.display = "none";
     document.getElementById("content").style.display = "block";
-  } else {
+  }else{
     alert("❌ الرمز غير صحيح");
   }
+}
+
+function copyText(text){
+  navigator.clipboard.writeText(text);
+  alert("✅ تم النسخ");
 }
 </script>
 
 </body>
+</html>
