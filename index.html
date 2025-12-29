@@ -1,120 +1,53 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Accounts</title>
-
-<style>
-body{
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#1e3c72,#2a5298);
-  direction: rtl;
-  margin:0;
-  padding:0;
-}
-.card{
-  background:#fff;
-  max-width:95%;
-  margin:20px auto;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-  text-align:center;
-}
-h2{margin-bottom:15px;font-size:22px}
-.item{
-  background:#f5f6fa;
-  padding:15px;
-  margin:15px 0;
-  border-radius:14px;
-  text-align:right;
-  font-size:16px;
-}
-.label{
-  font-weight:bold;
-  font-size:17px;
-  margin-bottom:6px;
-}
-.pass{
-  font-weight:bold;
-  color:#333;
-}
-.actions{
-  margin-top:10px;
-}
-button{
-  padding:12px;
-  width:100%;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:15px;
-  font-weight:bold;
-  background:#27ae60;
-  color:#fff;
-}
-</style>
-</head>
-
 <body>
 
-<div class="card">
+<!-- LOGIN -->
+<div class="card" id="login">
+  <h2>🔐 دخول</h2>
+  <p>أدخل الرمز</p>
+  <input type="password" id="pin" placeholder="••••">
+  <br><br>
+  <button onclick="checkPin()">دخول</button>
+</div>
+
+<!-- CONTENT -->
+<div class="card" id="content" style="display:none;">
   <h2>📂 My Accounts</h2>
 
-  <!-- Facebook -->
   <div class="item">
     <div class="label">📘 Facebook</div>
     Username: salahalbydy22&#64;gmail.com<br><br>
-    Password:
-    <span class="pass" id="fbpass">Aram1992&#64;</span>
-    <div class="actions">
-      <button onclick="copyFromSpan('fbpass')">📋 Copy Password</button>
-    </div>
+    Password: <b>Aram1992@;</b>
   </div>
 
-  <!-- Snapchat -->
   <div class="item">
     <div class="label">👻 Snapchat</div>
     Username: salahalbydy22&#64;gmail.com<br><br>
-    Password:
-    <span class="pass" id="snappass">Aram1992&#64;</span>
-    <div class="actions">
-      <button onclick="copyFromSpan('snappass')">📋 Copy Password</button>
-    </div>
+    Password: <b>Aram1992@;</b>
   </div>
 
-  <!-- TikTok -->
   <div class="item">
     <div class="label">📸 TikTok</div>
     Username: salahalbydy22&#64;gmail.com<br><br>
-    Password:
-    <span class="pass" id="tiktokpass">Aram1992&#64;</span>
-    <div class="actions">
-      <button onclick="copyFromSpan('tiktokpass')">📋 Copy Password</button>
-    </div>
+    Password: <b>Aram1992@;</b>
   </div>
 
-  <!-- Email -->
   <div class="item">
     <div class="label">📧 Email</div>
-    salahalbydy22&#64;gmail.com<br><br>
-    Password:
-    <span class="pass" id="mailpass">Aram1992&#64;</span>
-    <div class="actions">
-      <button onclick="copyFromSpan('mailpass')">📋 Copy Password</button>
-    </div>
+    Username: salahalbydy22&#64;gmail.com<br><br>
+    Password: <b>Aram1992@;</b>
   </div>
-
 </div>
 
 <script>
-function copyFromSpan(id){
-  const text = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text);
-  alert("✅ Copied");
+function checkPin(){
+  const pin = document.getElementById("pin").value;
+  if(pin === "1992"){   // 🔴 غيري الرمز هنا
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    alert("❌ الرمز غير صحيح");
+  }
 }
 </script>
 
 </body>
-</html>
